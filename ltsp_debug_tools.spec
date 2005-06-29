@@ -10,21 +10,17 @@ License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.ltsp.org/ltsp-utils-0.11.tgz
 # Source0-md5:	b17b350b18b04d769fcadcd12885a573
-Source1:	http://ltsp.mirrors.tds.net/pub/ltsp/ltsp-%{_pver}/ltsp-gdb-1.1-0-i386.tgz
+Source1:	http://ltsp.mirrors.tds.net/pub/ltsp/ltsp-%{_pver}/ltsp-gdb-1.1-0-%{_arch}.tgz
 # Source1-md5:	7b606b9f2bb3cec90bc36a6189cc9ed9
-Source2:	http://ltsp.mirrors.tds.net/pub/ltsp/ltsp-%{_pver}/ltsp-strace-1.1-0-i386.tgz
+Source2:	http://ltsp.mirrors.tds.net/pub/ltsp/ltsp-%{_pver}/ltsp-strace-1.1-0-%{_arch}.tgz
 # Source2-md5:	fc4cb561779f6d70fc5139f054dee8a7
 URL:		http://www.ltsp.org/
-BuildRequires:	perl-Digest-SHA1
-BuildRequires:	perl-URI
-BuildRequires:	perl-libwww
 Requires:	ltsp_core
 AutoProv:	0
 AutoReq:	0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_ltspdir	/home/services/ltsp
-#%define		no_install_post_strip	1
 
 %description
 LTSP is an add-on package for Linux that allows you to connect lots of
@@ -60,6 +56,5 @@ rm -rf $RPM_BUILD_ROOT
 #%doc README
 %dir %{_ltspdir}
 %attr(755,root,root) %{_ltspdir}/bin
-# XXX: fix perms inside!!!
 %attr(755,root,root) %{_ltspdir}/lib
 %{_ltspdir}/share
